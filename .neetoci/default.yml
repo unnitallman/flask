@@ -1,0 +1,13 @@
+version: v1.0
+name: neetoCi
+global_job_config:
+  setup:
+    - checkout
+    - neetoci-version python 3.9.2
+    - cache restore
+    - pip install tox
+    - cache store
+  jobs:
+    - name: JS Tests
+      commands:
+        - tox run
